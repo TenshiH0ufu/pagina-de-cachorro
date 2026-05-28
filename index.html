@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Cachorros</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Overlay de carregamento (spinner) -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">Carregando imagens...</p>
+  </div>
+
+  <!-- Cabeçalho com título e controles -->
+  <header class="header">
+    <h1 class="title">🐶 Galeria de Cachorros</h1>
+    <p class="subtitle">Quantas fotos de cachorro você quer ver hoje?</p>
+
+    <div class="controls">
+      <input
+        type="number"
+        id="countInput"
+        class="count-input"
+        placeholder="Ex: 10"
+        min="1"
+        max="100"
+        aria-label="Quantidade de fotos"
+      >
+
+      <button id="searchBtn" class="btn btn-primary">
+        Buscar Fotos
+      </button>
+
+      <button id="clearBtn" class="btn btn-secondary">
+        Limpar Galeria
+      </button>
+    </div>
+
+    <p class="hint">Digite um número de 1 a 100. Para mais de 10 fotos, a galeria terá paginação.</p>
+  </header>
+
+  <!-- Container principal da galeria -->
+  <main class="gallery-container">
+    <!-- Grid onde as imagens são renderizadas -->
+    <div id="galleryGrid" class="gallery-grid"></div>
+
+    <!-- Controles de paginação (oculto por padrão) -->
+    <div id="pagination" class="pagination"></div>
+  </main>
+
+  <!-- Modal de imagem ampliada -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-content">
+      <img id="modalImage" class="modal-image" src="" alt="Foto de cachorro ampliada">
+    </div>
+  </div>
+
+  <!-- Modal de erro -->
+  <div id="errorOverlay" class="error-overlay">
+    <div class="error-dialog">
+      <h2 class="error-title">Aviso</h2>
+      <p id="errorText" class="error-text"></p>
+      <button id="closeErrorBtn" class="btn btn-primary">Fechar</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/index.ts"></script>
+
+</body>
+</html>
